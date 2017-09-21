@@ -23,5 +23,23 @@ namespace BankAcctProject
             // Program should run until user selects 'Exit'
 
         }
+        //METHODS
+        //When a user launches the program the following menu should be displayed to the screen.
+        //1. View Client Information
+        //2. View Account Balance
+        //3. Deposit Funds
+        //4. Withdraw Funds
+        //5. Exit
+
+        public void MainMenu()
+        {
+            Console.WriteLine("Welcome to the bank.");
+            Console.WriteLine("MAIN MENU");
+            Console.WriteLine("1.View Client Information");
+            Console.WriteLine("2. View Account Balance");
+            Console.WriteLine("3. Deposit Funds");
+            Console.WriteLine("4. Withdraw Funds");
+            Console.WriteLine("5. Exit");
+        }
     }
 }
