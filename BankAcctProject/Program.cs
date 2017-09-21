@@ -10,10 +10,7 @@ namespace BankAcctProject
     {
         static void Main(string[] args)
         {
-            // Program Class
-            // Must instantiate one client object
-            // Must instantiate one checking account object
-            // Must instantiate one savings account object
+            // Program Class: +one client object, +one checking account object +one savings account object
             
             Client client1 = new Client("Bob", "Smith", 555000);
             Checking client1Checking = new Checking(555001, 250.75m);
@@ -22,16 +19,45 @@ namespace BankAcctProject
             // All menu options listed above must have functionality behind them
             // Program should run until user selects 'Exit'
 
+                      
+            bool keepBanking = true;
+
+            do
+            {
+                MainMenu();
+                int menuChoice = int.Parse(Console.ReadLine());
+
+                switch (menuChoice)
+                {
+                    case 1:
+                        ViewClientInfo();
+                        break;
+                    case 2:
+                        ViewAccountInfo();
+                        break;
+                    case 3:
+                        DepositFunds();
+                        break;
+                    case 4:
+                        WithdrawFunds();
+                        break;
+                    case 5:
+                        keepBanking = false;
+                        Exit();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option. Please choose again.");
+                        Console.WriteLine();
+
+                        break;
+                }
+            }
+            while (keepBanking == true);
+            
         }
         //METHODS
-        //When a user launches the program the following menu should be displayed to the screen.
-        //1. View Client Information
-        //2. View Account Balance
-        //3. Deposit Funds
-        //4. Withdraw Funds
-        //5. Exit
-
-        public void MainMenu()
+       
+        public static void MainMenu()
         {
             Console.WriteLine("Welcome to the bank.");
             Console.WriteLine("MAIN MENU");
@@ -40,6 +66,31 @@ namespace BankAcctProject
             Console.WriteLine("3. Deposit Funds");
             Console.WriteLine("4. Withdraw Funds");
             Console.WriteLine("5. Exit");
+        }
+
+        public static void ViewClientInfo()
+        {
+            Console.WriteLine("viewClientInfo()");
+        }
+
+        public static void ViewAccountInfo()
+        {
+            Console.WriteLine("viewAccountInfo()");
+        }
+
+        public static void DepositFunds()
+        {
+            Console.WriteLine("DepositFunds()");
+        }
+
+        public static void WithdrawFunds()
+        {
+            Console.WriteLine("WithdrawFunds()");
+        }
+        public static void Exit()
+        {
+            Console.WriteLine("Thank you for using the Bank.");
+            
         }
     }
 }

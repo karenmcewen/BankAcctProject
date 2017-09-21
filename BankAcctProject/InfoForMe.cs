@@ -10,11 +10,9 @@ namespace BankAcctProject
     {
 
 
-        //         Bank Account Project
+        //Bank Account Project
 
         //Due: Monday September 25, 2017 @ 5:30pm
-
-        //- Submission Link
 
         //Overview
 
@@ -42,6 +40,7 @@ namespace BankAcctProject
         //- [ ] Exit
         //The menu should display the options as shown in the Details section below.
         //In the menu, after a user selects either View Balance, Deposit, or Withdraw, the program should then give the option of selecting which account.
+
         //Required Classes
 
         // Client Class
@@ -49,6 +48,7 @@ namespace BankAcctProject
         // 1 constructor
         // 1 method
         // Client information should be filled in here
+        
         // Accounts (ALL Accounts should include the following)
         // An account number
         // Balance
@@ -57,6 +57,7 @@ namespace BankAcctProject
         // User must be able to deposit money into either account
         // User must be able to withdraw money from either account
         // Make sure to include the following Classes
+
         // Account Class (base)
         // Checking Account Class (derived)
         // 1 constructor
@@ -64,12 +65,15 @@ namespace BankAcctProject
         //Note: Savings Account must include a minimum balance. User cannot withdraw money if balance will drop below minimum.
         // 1 property
         // 1 constructor
+
+
         // Program Class
         // Must instantiate one client object
         // Must instantiate one checking account object
         // Must instantiate one savings account object
         // All menu options listed above must have functionality behind them
         // Program should run until user selects 'Exit'
+
         //Other Tasks
 
         // After each transaction, the current balance should be displayed on the screen.
@@ -77,22 +81,23 @@ namespace BankAcctProject
         // 1 abstract method (at least)
         // 1 virtual method (at least)
         // 1 override method (at least)
+
+
         //Details
-
         //When a user launches the program the following menu should be displayed to the screen.
+            //1. View Client Information
+            //2. View Account Balance
+            //3. Deposit Funds
+            //4. Withdraw Funds
+            //5. Exit
 
-        //1. View Client Information
-        //2. View Account Balance
-        //3. Deposit Funds
-        //4. Withdraw Funds
-        //5. Exit
-        //If the user wants to view account balance, deposit funds, or withdraw money, the user should be prompted to select which account.
-
-        //1. View Client Information
-        //2. View Account Balance
-        //3. Deposit Funds
-        //4. Withdraw Funds
-        //5. Exit
+        //If the user wants to view account balance, deposit funds, or withdraw money, 
+        //the user should be prompted to select which account.
+            //1. View Client Information
+            //2. View Account Balance
+            //3. Deposit Funds
+            //4. Withdraw Funds
+            //5. Exit
 
         //2
 
@@ -110,7 +115,7 @@ namespace BankAcctProject
 
         //You can choose any starting balance to begin the program.
 
-        //Think about what data type should be used for dealing with money.
+        //Think about what data type should be used for dealing with money. (DECIMAL - fewer rounding errors)
 
     }
 }
