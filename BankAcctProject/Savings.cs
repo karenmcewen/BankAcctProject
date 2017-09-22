@@ -107,9 +107,11 @@ namespace BankAcctProject
             if (depositAmount<0)
             {
                 Console.WriteLine("That is not a valid amount");
-                Console.WriteLine("How much would you like to deposit?");
-                depositAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
+                //Console.WriteLine("How much would you like to deposit?");
+                //depositAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
             }
+
+            
             else
             {
                 Console.WriteLine("_______________________________________________________________________");
@@ -131,7 +133,8 @@ namespace BankAcctProject
             {
                 Console.WriteLine("_______________________________________________________________________");
                 Console.WriteLine();
-                Console.WriteLine("You do not have enough funds to withdraw from this account.");
+                Console.WriteLine("You do not have the minimum standard of ${0}to withdraw from savings.",minimumBalance);
+                Console.WriteLine("You have ${0} in your savings account.", accountBalance);
                 Console.WriteLine("_______________________________________________________________________");
                 Console.WriteLine();
             }
@@ -144,8 +147,18 @@ namespace BankAcctProject
                 if (withdrawAmount < 0)
                 {
                     Console.WriteLine("That is not a valid amount");
-                    Console.WriteLine("How much would you like to withdraw?");
-                    withdrawAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
+                    //Console.WriteLine("How much would you like to withdraw?");
+                    //withdrawAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
+                }
+
+                else if (withdrawAmount > 0 && withdrawAmount > accountBalance)
+                {
+                    Console.WriteLine("_______________________________________________________________________");
+                    Console.WriteLine();
+                    Console.WriteLine("You do not have enough money in the account to witdraw ${0}", withdrawAmount);
+                    Console.WriteLine("You have ${0} in your savings account", accountBalance);
+                    Console.WriteLine("_______________________________________________________________________");
+                    Console.WriteLine();
                 }
                 else
                 {

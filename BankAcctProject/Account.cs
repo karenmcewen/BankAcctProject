@@ -61,20 +61,25 @@ namespace BankAcctProject
         }
 
         //METHODS +derived classes can override methods from the parent class using "virtual" keyword
-        //this method will be overriden the in the Saving & Checking classes
+        //virtual methods CAN be overriden by child classes, but it is not required
+        //virtual methods have a {body}
         public virtual void ShowAccountInfo()
         {
-            
+            Console.WriteLine("_______________________________________________________________________");
+
+            Console.WriteLine("ACCOUNT INFORMATION");
+            Console.WriteLine("The account number is: {0}", accountNumber);
+            Console.WriteLine("The current balance for this account is: ${0}", accountBalance);
+
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
         }
 
-        public virtual void Deposit()
-        {
-            
-        }
+        //abstract methods MUST be overridden in each child class
+        //abstract methods DO NOT have a {body}
+        public abstract void Deposit(); 
 
-        public virtual void Withdraw()
-        {
+        public abstract void Withdraw();
 
-        }
     }
 }

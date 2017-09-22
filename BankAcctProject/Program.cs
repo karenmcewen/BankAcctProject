@@ -10,10 +10,11 @@ namespace BankAcctProject
     {
         static void Main(string[] args)
         {
-            
+
+
             //Instantiate +one client object, +one checking account object +one savings account object
-            
-            Client client1 = new Client("Bob", "Smith", 555000);
+
+        Client client1 = new Client("Bob", "Smith", 555000);
             Checking client1Checking = new Checking(555001, 250.75m);
             Savings client1Savings = new Savings(555002, 1234.56m, 500.00m);
             
@@ -89,7 +90,8 @@ namespace BankAcctProject
        
         public static void MainMenu()
         {
-            Console.WriteLine("Welcome to the bank.");
+            Console.WriteLine("Welcome to GITIBANK.");
+            Console.WriteLine();
             Console.WriteLine("MAIN MENU");
             Console.WriteLine("1.View Client Information");
             Console.WriteLine("2. View Account Balances");
@@ -104,56 +106,60 @@ namespace BankAcctProject
         {
             Console.WriteLine("DepositFunds()");
             Console.WriteLine("Would you like to deposit funds to 1) Checking or 2) Savings?");
-            int depositAccount = int.Parse(Console.ReadLine());
-            switch (depositAccount)
+            int depositAccountChoice = int.Parse(Console.ReadLine());
+            switch (depositAccountChoice)
             {
                 case 1:
-                    Console.WriteLine("You chose checking");
+                    Console.WriteLine("You chose to DEPOSIT to CHECKING.");
+                    //future function could add ability to say yes/no to whether choice was correct"
                     break;
                 case 2:
-                    Console.WriteLine("You chose savings");
+                    Console.WriteLine("You chose to DEPOSIT to SAVINGS");
                     break;
 
                 default:
                     Console.WriteLine("Invalid choice. Please choose again.");
                     Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
-                    depositAccount = int.Parse(Console.ReadLine());
+                    depositAccountChoice = int.Parse(Console.ReadLine());
                     //if this answer is invalid, that number will carry back to the method, which is currently
                     //set to default to the savings account - would need to create another if or case option 
                     //to correct for this error
                     break;
             }
-            return depositAccount;
+            return depositAccountChoice;
         }
 
         public static int WithdrawFundsMenu() //returns an integer indicating which account to withdraw from
         {
-            Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
-            int withdrawAccount = int.Parse(Console.ReadLine());
-            switch (withdrawAccount)
+            Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings?");
+            int withdrawAccountChoice = int.Parse(Console.ReadLine());
+            switch (withdrawAccountChoice)
             {
                 case 1:
-                    Console.WriteLine("You chose checking");
+                    Console.WriteLine("You chose to WITHDRAW from CHECKING.\n");
                     break;
                 case 2:
-                    Console.WriteLine("You chose savings");
+                    Console.WriteLine("You chose WITHDRAW from SAVINGS.\n");
                     break;
 
                 default:
                     Console.WriteLine("Invalid choice. Please choose again.");
-                    Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
-                    withdrawAccount = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings?");
+                    withdrawAccountChoice = int.Parse(Console.ReadLine());
                     //if this answer is invalid, that number will carry back to the method, which is currently
                     //set to default to the savings account - would need to create another if or case option 
                     //to correct for this error
                     break;
             }
-            return withdrawAccount;
+            return withdrawAccountChoice;
         }
         public static void Exit()
         {
-            Console.WriteLine("Thank you for using the Bank.");
-            
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
+            Console.WriteLine("Thank you for using GITIBANK. Have a nice day.");
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
         }
     }
 }

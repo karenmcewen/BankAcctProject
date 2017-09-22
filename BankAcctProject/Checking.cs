@@ -87,11 +87,22 @@ namespace BankAcctProject
             Console.WriteLine();
             Console.WriteLine("How much would you like to withdraw?");
             decimal withdrawAmount = decimal.Parse(Console.ReadLine());
+
             if (withdrawAmount < 0)
             {
                 Console.WriteLine("That is not a valid amount");
-                Console.WriteLine("How much would you like to withdraw?");
-                withdrawAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
+                //Console.WriteLine("How much would you like to withdraw?");
+                //withdrawAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
+            }
+
+            else if(withdrawAmount>0 && withdrawAmount>accountBalance)
+            {
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine();
+                Console.WriteLine("You do not have enough money in the account to witdraw ${0}", withdrawAmount);
+                Console.WriteLine("You have ${0} in your checking account.", accountBalance);
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine();
             }
             else
             {
