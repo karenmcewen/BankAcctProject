@@ -77,7 +77,7 @@ namespace BankAcctProject
             
             
             Console.WriteLine("_______________________________________________________________________");
-            
+            Console.WriteLine();
             Console.WriteLine("ACCOUNT INFORMATION for SAVINGS");
             Console.WriteLine("The account number is: {0}", accountNumber);        
             Console.WriteLine("The current balance for this account is: ${0}", accountBalance);
@@ -128,7 +128,7 @@ namespace BankAcctProject
         public override void Withdraw()
         {            
             bool okToWithdraw = CheckMinimumBalance();
-            //base.Withdraw();//default
+            
             if(okToWithdraw==false)
             {
                 Console.WriteLine("_______________________________________________________________________");
@@ -151,11 +151,12 @@ namespace BankAcctProject
                     //withdrawAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
                 }
 
-                else if (withdrawAmount > 0 && withdrawAmount > accountBalance)
+                else if (withdrawAmount > 0 && withdrawAmount > (accountBalance-minimumBalance))
                 {
                     Console.WriteLine("_______________________________________________________________________");
                     Console.WriteLine();
-                    Console.WriteLine("You do not have enough money in the account to witdraw ${0}", withdrawAmount);
+                    Console.WriteLine("You do not have enough money in the account to withdraw ${0}", withdrawAmount);
+                    Console.WriteLine("You must keep a minimum of ${0} in your account.", minimumBalance);
                     Console.WriteLine("You have ${0} in your savings account", accountBalance);
                     Console.WriteLine("_______________________________________________________________________");
                     Console.WriteLine();

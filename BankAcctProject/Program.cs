@@ -10,11 +10,10 @@ namespace BankAcctProject
     {
         static void Main(string[] args)
         {
-
-
             //Instantiate +one client object, +one checking account object +one savings account object
+            //decimal is the best choice for money because it has enough accuracy and causes fewer rounding errors
 
-        Client client1 = new Client("Bob", "Smith", 555000);
+            Client client1 = new Client("Maggie", "Moo", 555000);
             Checking client1Checking = new Checking(555001, 250.75m);
             Savings client1Savings = new Savings(555002, 1234.56m, 500.00m);
             
@@ -93,11 +92,12 @@ namespace BankAcctProject
             Console.WriteLine("Welcome to GITIBANK.");
             Console.WriteLine();
             Console.WriteLine("MAIN MENU");
-            Console.WriteLine("1.View Client Information");
+            Console.WriteLine("1. View Client Information");
             Console.WriteLine("2. View Account Balances");
             Console.WriteLine("3. Deposit Funds");
             Console.WriteLine("4. Withdraw Funds");
             Console.WriteLine("5. Exit");
+            Console.WriteLine();
         }
 
              
