@@ -56,7 +56,8 @@ namespace BankAcctProject
         }
 
         //METHODS -derived classes can override methods from the parent class using "virtual" keyword
-        public static bool CheckMinimumBalance()
+        //methods in classes do not use the 'static' keyword
+        public bool CheckMinimumBalance()
         {
             bool okToWithdraw = false;
             if (accountBalance > minimumBalance)
@@ -68,6 +69,33 @@ namespace BankAcctProject
                 okToWithdraw = false;
             }
             return okToWithdraw;
+        }
+        public override void ShowAccountInfo()
+        {
+            //calls another method - must redefine the variable here because of scope
+            bool okToWithdraw = CheckMinimumBalance(); 
+            
+            Console.WriteLine();
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
+            Console.WriteLine("ACCOUNT INFORMATION for SAVINGS");
+            Console.WriteLine("The account number is: , {0}", accountNumber);        
+            Console.WriteLine("The current balance for this account is: ${0}", accountBalance);
+            Console.WriteLine();
+
+            Console.WriteLine("The minimum balance required to withdraw from this account is: ${0}", minimumBalance);
+            if (okToWithdraw)
+            {
+                Console.WriteLine("You may withdraw from this account");
+            }
+            else
+            {                
+                Console.WriteLine("You do not have the funds to withdraw from this account.");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
         }
 
     }

@@ -17,8 +17,8 @@ namespace BankAcctProject
             Savings client1Savings = new Savings(555002, 1234.56m, 500.00m);
             
             bool keepBanking = true;
-            int withdrawAccount = 0;
-            int depositAccount = 0;
+            //int withdrawAccount = 0; these variables are used in methods and don't need to be defined here
+            //int depositAccount = 0;
 
 
             do
@@ -30,29 +30,36 @@ namespace BankAcctProject
                 switch (menuChoice)
                 {
                     case 1:
-                        ViewClientInfo();
+                        client1.ShowClientInfo();
                         break;
                     case 2:
-                        ViewAccountInfo();
+                        client1Checking.ShowAccountInfo();
+                        client1Savings.ShowAccountInfo();                        
                         break;
                     case 3:
-                        DepositFunds();
+                        DepositFundsMenu();
                         break;
                     case 4:
-                        WithdrawFunds();
-                        if (withdrawAccount==1)//checking
-                        {
+                        WithdrawFundsMenu();
+                        //if (withdrawAccount == 1)//checking
+                        //{
 
-                        }
-                        else if (withdrawAccount == 2) //savings
-                        {
-                            Savings.CheckMinimumBalance();
+                        //}
+                        //else if (withdrawAccount == 2) //savings
+                        //{
+                        //    Savings.CheckMinimumBalance();
+                        //    if (Savings.okToWithdraw = true)
+                        //    {
+                        //        Console.WriteLine("You have enough money to withdraw from the account!");
+                        //    }
 
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invalid entry. Please try again.");
-                        }
+                            
+
+                        //}
+                        //else
+                        //{
+                        //    Console.WriteLine("Invalid entry. Please try again.");
+                        //}
 
                         break;
                     case 5:
@@ -76,28 +83,18 @@ namespace BankAcctProject
             Console.WriteLine("Welcome to the bank.");
             Console.WriteLine("MAIN MENU");
             Console.WriteLine("1.View Client Information");
-            Console.WriteLine("2. View Account Balance");
+            Console.WriteLine("2. View Account Balances");
             Console.WriteLine("3. Deposit Funds");
             Console.WriteLine("4. Withdraw Funds");
             Console.WriteLine("5. Exit");
         }
 
-        // All menu options listed above must have functionality behind them
-        public static void ViewClientInfo()
-        {
-            Console.WriteLine("viewClientInfo()");
+             
 
-        }
-
-        public static void ViewAccountInfo()
-        {
-            Console.WriteLine("viewAccountInfo()");
-        }
-
-        public static int DepositFunds()
+        public static int DepositFundsMenu()
         {
             Console.WriteLine("DepositFunds()");
-            Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
+            Console.WriteLine("Would you like to deposit funds to 1) Checking or 2) Savings?");
             int depositAccount = int.Parse(Console.ReadLine());
             switch (depositAccount)
             {
@@ -117,7 +114,7 @@ namespace BankAcctProject
             return depositAccount;
         }
 
-        public static int WithdrawFunds()
+        public static int WithdrawFundsMenu()
         {
             Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
             int withdrawAccount = int.Parse(Console.ReadLine());

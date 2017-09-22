@@ -53,6 +53,19 @@ namespace BankAcctProject
         }
 
         //METHODS (1)
+        public void ShowClientInfo()
+        {
+            
+            Console.WriteLine();
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
+            Console.WriteLine("CLIENT INFORMATION");
+            Console.WriteLine("Client Name: , {0}, {1}", this.firstName, this.lastName);
+            Console.WriteLine("Client Number: {0}", this.clientNumber);
+            Console.WriteLine();
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
+        }
 
 
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankAcctProject
 {
-    abstract class Account
+    abstract class Account //this abstract base class has two inheritor classes - Checking & Savings
     {
         // Accounts (ALL Accounts should include the following)
         // An account number
@@ -31,19 +31,19 @@ namespace BankAcctProject
         public int AccountNumber
         {
             get { return this.accountNumber; }
-            set { this.accountNumber = value; }
+            //set { this.accountNumber = value; } - do not set this because do not want it to be changed
         }
 
         public decimal AccountBalance
         {
             get { return this.accountBalance; }
-            set { this.accountBalance = value; }
+            set { this.accountBalance = value; } //allows other portions of the program to change the variable
         }
 
         public string AccountType
         {
             get { return this.accountType; }
-            set { this.accountType = value; }
+            //set { this.accountType = value; }- do not set this because do not want it to be changed
         }
 
         //CONSTRUCTORS
@@ -60,7 +60,11 @@ namespace BankAcctProject
 
         }
 
-        //METHODS -derived classes can override methods from the parent class using "virtual" keyword
-        
+        //METHODS +derived classes can override methods from the parent class using "virtual" keyword
+        //this method will be overriden the in the Saving & Checking classes
+        public virtual void ShowAccountInfo()
+        {
+            
+        }
     }
 }

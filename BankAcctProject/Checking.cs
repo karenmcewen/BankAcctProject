@@ -41,6 +41,17 @@ namespace BankAcctProject
         }
 
         //METHODS -derived classes can override methods from the parent class using "virtual" keyword
-
+        public override void ShowAccountInfo()
+        {
+            Console.WriteLine();
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
+            Console.WriteLine("ACCOUNT INFORMATION for CHECKING");
+            Console.WriteLine("The account number is: , {0}", accountNumber);
+            Console.WriteLine("The current balance for this account is: ${0}", accountBalance);
+            Console.WriteLine();
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
+        }
     }
 }
