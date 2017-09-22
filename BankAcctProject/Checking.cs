@@ -43,15 +43,67 @@ namespace BankAcctProject
         //METHODS -derived classes can override methods from the parent class using "virtual" keyword
         public override void ShowAccountInfo()
         {
-            Console.WriteLine();
+            
             Console.WriteLine("_______________________________________________________________________");
-            Console.WriteLine();
+            
             Console.WriteLine("ACCOUNT INFORMATION for CHECKING");
-            Console.WriteLine("The account number is: , {0}", accountNumber);
+            Console.WriteLine("The account number is: {0}", accountNumber);
             Console.WriteLine("The current balance for this account is: ${0}", accountBalance);
-            Console.WriteLine();
+            
             Console.WriteLine("_______________________________________________________________________");
             Console.WriteLine();
+        }
+
+        public override void Deposit()
+        {
+            //base.Deposit();//default
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
+            Console.WriteLine("How much would you like to deposit?");
+            decimal depositAmount = decimal.Parse(Console.ReadLine());
+            if (depositAmount < 0)
+            {
+                Console.WriteLine("That is not a valid amount");
+                Console.WriteLine("How much would you like to deposit?");
+                depositAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
+            }
+            else
+            {
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine();
+                Console.WriteLine("Thank you for your deposit of ${0}", depositAmount);
+                accountBalance += depositAmount;
+                Console.WriteLine("You now have ${0} in your checking account.", accountBalance);
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine();
+            }
+
+        }
+
+        public override void Withdraw()
+        {
+            //base.Withdraw();//default
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
+            Console.WriteLine("How much would you like to withdraw?");
+            decimal withdrawAmount = decimal.Parse(Console.ReadLine());
+            if (withdrawAmount < 0)
+            {
+                Console.WriteLine("That is not a valid amount");
+                Console.WriteLine("How much would you like to withdraw?");
+                withdrawAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
+            }
+            else
+            {
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine();
+                Console.WriteLine("You have withdrawn ${0}", withdrawAmount);
+                accountBalance -= withdrawAmount;
+                Console.WriteLine("You now have ${0} in your checking account.", accountBalance);
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine();
+            }
+
         }
     }
 }

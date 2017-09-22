@@ -55,7 +55,7 @@ namespace BankAcctProject
 
         public Account(int accountNumber, decimal accountBalance)
         {
-            this.accountNumber =    accountNumber;
+            this.accountNumber = accountNumber;
             this.accountBalance = accountBalance;
 
         }
@@ -65,6 +65,16 @@ namespace BankAcctProject
         public virtual void ShowAccountInfo()
         {
             
+        }
+
+        public virtual void Deposit()
+        {
+            
+        }
+
+        public virtual void Withdraw()
+        {
+
         }
     }
 }

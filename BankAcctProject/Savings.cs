@@ -39,7 +39,7 @@ namespace BankAcctProject
             get { return this.minimumBalance; }
             set { this.minimumBalance = value; }
         }
-        public bool OkToWithdraw
+        public bool OkToWithdraw //???does this need to be a property or better to create a method????
         {
             get { return this.okToWithdraw; }
             set { this.okToWithdraw = value; }
@@ -75,11 +75,11 @@ namespace BankAcctProject
             //calls another method - must redefine the variable here because of scope
             bool okToWithdraw = CheckMinimumBalance(); 
             
-            Console.WriteLine();
+            
             Console.WriteLine("_______________________________________________________________________");
-            Console.WriteLine();
+            
             Console.WriteLine("ACCOUNT INFORMATION for SAVINGS");
-            Console.WriteLine("The account number is: , {0}", accountNumber);        
+            Console.WriteLine("The account number is: {0}", accountNumber);        
             Console.WriteLine("The current balance for this account is: ${0}", accountBalance);
             Console.WriteLine();
 
@@ -93,9 +93,71 @@ namespace BankAcctProject
                 Console.WriteLine("You do not have the funds to withdraw from this account.");
             }
 
-            Console.WriteLine();
+            
             Console.WriteLine("_______________________________________________________________________");
             Console.WriteLine();
+        }
+        public override void Deposit()
+        {
+            //base.Deposit(); //default
+            Console.WriteLine("_______________________________________________________________________");
+            Console.WriteLine();
+            Console.WriteLine("How much would you like to deposit?");
+            decimal depositAmount = decimal.Parse(Console.ReadLine());
+            if (depositAmount<0)
+            {
+                Console.WriteLine("That is not a valid amount");
+                Console.WriteLine("How much would you like to deposit?");
+                depositAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
+            }
+            else
+            {
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine();
+                Console.WriteLine("Thank you for your deposit of ${0}", depositAmount);
+                accountBalance += depositAmount;
+                Console.WriteLine("You now have ${0} in your savings account.", accountBalance);
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine();
+            }
+
+        }
+
+        public override void Withdraw()
+        {            
+            bool okToWithdraw = CheckMinimumBalance();
+            //base.Withdraw();//default
+            if(okToWithdraw==false)
+            {
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine();
+                Console.WriteLine("You do not have enough funds to withdraw from this account.");
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("_______________________________________________________________________");
+                Console.WriteLine();
+                Console.WriteLine("How much would you like to withdraw?");
+                decimal withdrawAmount = decimal.Parse(Console.ReadLine());
+                if (withdrawAmount < 0)
+                {
+                    Console.WriteLine("That is not a valid amount");
+                    Console.WriteLine("How much would you like to withdraw?");
+                    withdrawAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
+                }
+                else
+                {
+                    Console.WriteLine("_______________________________________________________________________");
+                    Console.WriteLine();
+                    Console.WriteLine("You have withdrawn ${0}", withdrawAmount);
+                    accountBalance -= withdrawAmount;
+                    Console.WriteLine("You now have ${0} in your savings account.", accountBalance);
+                    Console.WriteLine("_______________________________________________________________________");
+                    Console.WriteLine();
+                }
+            }
         }
 
     }

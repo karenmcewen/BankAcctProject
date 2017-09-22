@@ -10,66 +10,75 @@ namespace BankAcctProject
     {
         static void Main(string[] args)
         {
-            // Program Class: +one client object, +one checking account object +one savings account object
+            
+            //Instantiate +one client object, +one checking account object +one savings account object
             
             Client client1 = new Client("Bob", "Smith", 555000);
             Checking client1Checking = new Checking(555001, 250.75m);
             Savings client1Savings = new Savings(555002, 1234.56m, 500.00m);
             
             bool keepBanking = true;
-            //int withdrawAccount = 0; these variables are used in methods and don't need to be defined here
-            //int depositAccount = 0;
 
-
-            do
+            do // +Program should run until user selects 'Exit'
             {
-                // +Program should run until user selects 'Exit'
                 MainMenu();
-                int menuChoice = int.Parse(Console.ReadLine());
+                int mainMenuChoice = int.Parse(Console.ReadLine());
 
-                switch (menuChoice)
+                switch (mainMenuChoice)
                 {
                     case 1:
                         client1.ShowClientInfo();
                         break;
+
                     case 2:
                         client1Checking.ShowAccountInfo();
                         client1Savings.ShowAccountInfo();                        
                         break;
+
                     case 3:
-                        DepositFundsMenu();
+                        //in this case, only two options will be returned (1=checking, 2=savings)
+                        //using an integer rather than a bool allows for options to be added (e.g.3=interest checking!)
+                        int depositAccount = DepositFundsMenu();
+
+                        if(depositAccount ==1)//checking
+                        {
+                            //call Deposit method from Checking class
+                            client1Checking.Deposit();
+                        }
+                        else //(deposit Account == 2)//savings
+                        {
+                            //call Deposit method from Savings class
+                            client1Savings.Deposit();
+                        }
                         break;
+
                     case 4:
-                        WithdrawFundsMenu();
-                        //if (withdrawAccount == 1)//checking
-                        //{
+                        int withdrawAccount = WithdrawFundsMenu();
+                        //in this case, only two options will be returned (1=checking, 2=savings)
+                        //using an integer rather than a bool allows for options to be added (interest checking!)
 
-                        //}
-                        //else if (withdrawAccount == 2) //savings
-                        //{
-                        //    Savings.CheckMinimumBalance();
-                        //    if (Savings.okToWithdraw = true)
-                        //    {
-                        //        Console.WriteLine("You have enough money to withdraw from the account!");
-                        //    }
+                        if (withdrawAccount == 1)//checking
+                        {
+                            //call Withdraw method from Checking class
+                            client1Checking.Withdraw();
+                        }
+                        else //(withdrawAccount == 2) //savings
+                        {
+                            //call Withdraw method from Savings class
+                            client1Savings.Withdraw();
 
-                            
-
-                        //}
-                        //else
-                        //{
-                        //    Console.WriteLine("Invalid entry. Please try again.");
-                        //}
-
+                        }
                         break;
+
                     case 5:
                         keepBanking = false;
                         Exit();
                         break;
-                    default:
-                        Console.WriteLine("Invalid option. Please choose again.");
-                        Console.WriteLine();
 
+                    default:
+                        //goes through do-while loop and returns to main menu
+                        Console.WriteLine("Invalid option. Please choose again."); 
+                        Console.WriteLine();
                         break;
                 }
             }
@@ -91,7 +100,7 @@ namespace BankAcctProject
 
              
 
-        public static int DepositFundsMenu()
+        public static int DepositFundsMenu() //returns an integer indicating which account to deposit to
         {
             Console.WriteLine("DepositFunds()");
             Console.WriteLine("Would you like to deposit funds to 1) Checking or 2) Savings?");
@@ -109,12 +118,15 @@ namespace BankAcctProject
                     Console.WriteLine("Invalid choice. Please choose again.");
                     Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
                     depositAccount = int.Parse(Console.ReadLine());
+                    //if this answer is invalid, that number will carry back to the method, which is currently
+                    //set to default to the savings account - would need to create another if or case option 
+                    //to correct for this error
                     break;
             }
             return depositAccount;
         }
 
-        public static int WithdrawFundsMenu()
+        public static int WithdrawFundsMenu() //returns an integer indicating which account to withdraw from
         {
             Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
             int withdrawAccount = int.Parse(Console.ReadLine());
@@ -131,6 +143,9 @@ namespace BankAcctProject
                     Console.WriteLine("Invalid choice. Please choose again.");
                     Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
                     withdrawAccount = int.Parse(Console.ReadLine());
+                    //if this answer is invalid, that number will carry back to the method, which is currently
+                    //set to default to the savings account - would need to create another if or case option 
+                    //to correct for this error
                     break;
             }
             return withdrawAccount;
