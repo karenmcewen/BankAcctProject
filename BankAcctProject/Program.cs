@@ -15,15 +15,15 @@ namespace BankAcctProject
             Client client1 = new Client("Bob", "Smith", 555000);
             Checking client1Checking = new Checking(555001, 250.75m);
             Savings client1Savings = new Savings(555002, 1234.56m, 500.00m);
-
-            // All menu options listed above must have functionality behind them
-            // Program should run until user selects 'Exit'
-
-                      
+            
             bool keepBanking = true;
+            int withdrawAccount = 0;
+            int depositAccount = 0;
+
 
             do
             {
+                // +Program should run until user selects 'Exit'
                 MainMenu();
                 int menuChoice = int.Parse(Console.ReadLine());
 
@@ -40,6 +40,20 @@ namespace BankAcctProject
                         break;
                     case 4:
                         WithdrawFunds();
+                        if (withdrawAccount==1)//checking
+                        {
+
+                        }
+                        else if (withdrawAccount == 2) //savings
+                        {
+                            Savings.CheckMinimumBalance();
+
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid entry. Please try again.");
+                        }
+
                         break;
                     case 5:
                         keepBanking = false;
@@ -68,9 +82,11 @@ namespace BankAcctProject
             Console.WriteLine("5. Exit");
         }
 
+        // All menu options listed above must have functionality behind them
         public static void ViewClientInfo()
         {
             Console.WriteLine("viewClientInfo()");
+
         }
 
         public static void ViewAccountInfo()
@@ -78,14 +94,49 @@ namespace BankAcctProject
             Console.WriteLine("viewAccountInfo()");
         }
 
-        public static void DepositFunds()
+        public static int DepositFunds()
         {
             Console.WriteLine("DepositFunds()");
+            Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
+            int depositAccount = int.Parse(Console.ReadLine());
+            switch (depositAccount)
+            {
+                case 1:
+                    Console.WriteLine("You chose checking");
+                    break;
+                case 2:
+                    Console.WriteLine("You chose savings");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid choice. Please choose again.");
+                    Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
+                    depositAccount = int.Parse(Console.ReadLine());
+                    break;
+            }
+            return depositAccount;
         }
 
-        public static void WithdrawFunds()
+        public static int WithdrawFunds()
         {
-            Console.WriteLine("WithdrawFunds()");
+            Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
+            int withdrawAccount = int.Parse(Console.ReadLine());
+            switch (withdrawAccount)
+            {
+                case 1:
+                    Console.WriteLine("You chose checking");
+                    break;
+                case 2:
+                    Console.WriteLine("You chose savings");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid choice. Please choose again.");
+                    Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings");
+                    withdrawAccount = int.Parse(Console.ReadLine());
+                    break;
+            }
+            return withdrawAccount;
         }
         public static void Exit()
         {

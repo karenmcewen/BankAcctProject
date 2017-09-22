@@ -26,6 +26,7 @@ namespace BankAcctProject
         //protected fields - can be accessed by parent and derived classes
         //accountNumber, accountBalance, accountType are inherited from Account class
         protected decimal minimumBalance;
+        protected bool okToWithdraw;
 
 
         //private fields - can only be accessed by this class
@@ -38,7 +39,11 @@ namespace BankAcctProject
             get { return this.minimumBalance; }
             set { this.minimumBalance = value; }
         }
-        
+        public bool OkToWithdraw
+        {
+            get { return this.okToWithdraw; }
+            set { this.okToWithdraw = value; }
+        }
 
         //CONSTRUCTORS (1)
 
@@ -51,6 +56,19 @@ namespace BankAcctProject
         }
 
         //METHODS -derived classes can override methods from the parent class using "virtual" keyword
+        public static bool CheckMinimumBalance()
+        {
+            bool okToWithdraw = false;
+            if (accountBalance > minimumBalance)
+            {
+                okToWithdraw = true;
+            }
+            else
+            {
+                okToWithdraw = false;
+            }
+            return okToWithdraw;
+        }
 
     }
 }
