@@ -9,41 +9,24 @@ namespace BankAcctProject
     class Checking:Account
     {
         // Accounts (ALL Accounts should include the following)
-        // An account number
-        // Balance
-        // An account type (savings or checking)
-        // A way to view the current balance
-        // User must be able to deposit money into either account
-        // User must be able to withdraw money from either account
-        // Make sure to include the following Classes
-        // Checking Account Class (derived)
-        // 1 constructor
-
-        //FIELDS
-        //protected fields - can be accessed by parent and derived classes
-        //only needed if different from parent classes - not needed for Checking
-        //accountNumber, accountBalance, accountType are inherited from Account class
-
-        //private fields - can only be accessed by this class
-        //none at this time
+        // +An account number, +Balance, +An account type (savings or checking)       
+        // Checking Account Class (derived) +1 constructor              
 
         //PROPERTIES
-        //only needed if different from parent classes - not needed for Checking
+        //only need to define here if different from parent class - not needed for Checking
         //AccountNumber, AccountBalance, AccountType are inherited from Account class
 
-        //CONSTRUCTORS
-
+        //CONSTRUCTORS (+1)
         public Checking(int accountNumber, decimal accountBalance)
         {
             this.accountNumber = accountNumber;
             this.accountBalance = accountBalance;
-
         }
 
-        //METHODS -derived classes can override methods from the parent class using "virtual" keyword
+        //METHODS derived classes can override methods from the parent class using "override" keyword
+        //ABSTRACT METHODS from the parent class MUST be overridden, or there will be an error
         public override void ShowAccountInfo()
-        {
-            
+        {            
             Console.WriteLine("_______________________________________________________________________");
             Console.WriteLine();
             Console.WriteLine("ACCOUNT INFORMATION for CHECKING");
@@ -56,7 +39,6 @@ namespace BankAcctProject
 
         public override void Deposit()
         {
-            //base.Deposit();//default
             Console.WriteLine("_______________________________________________________________________");
             Console.WriteLine();
             Console.WriteLine("How much would you like to deposit?");
@@ -77,12 +59,10 @@ namespace BankAcctProject
                 Console.WriteLine("_______________________________________________________________________");
                 Console.WriteLine();
             }
-
         }
 
         public override void Withdraw()
         {
-            //base.Withdraw();//default
             Console.WriteLine("_______________________________________________________________________");
             Console.WriteLine();
             Console.WriteLine("How much would you like to withdraw?");
@@ -90,9 +70,7 @@ namespace BankAcctProject
 
             if (withdrawAmount < 0)
             {
-                Console.WriteLine("That is not a valid amount");
-                //Console.WriteLine("How much would you like to withdraw?");
-                //withdrawAmount = decimal.Parse(Console.ReadLine());//???how to get from here to else...
+                Console.WriteLine("That is not a valid amount");                
             }
 
             else if(withdrawAmount>0 && withdrawAmount>accountBalance)
@@ -114,7 +92,6 @@ namespace BankAcctProject
                 Console.WriteLine("_______________________________________________________________________");
                 Console.WriteLine();
             }
-
         }
     }
 }

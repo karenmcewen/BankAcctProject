@@ -84,7 +84,9 @@ namespace BankAcctProject
             }
             while (keepBanking == true);
             
-        }
+        }//END of MAIN
+
+        //----------------------------------------------------------------------------------------
         //METHODS
        
         public static void MainMenu()
@@ -98,11 +100,10 @@ namespace BankAcctProject
             Console.WriteLine("4. Withdraw Funds");
             Console.WriteLine("5. Exit");
             Console.WriteLine();
-        }
+        }             
 
-             
-
-        public static int DepositFundsMenu() //returns an integer indicating which account to deposit to
+        public static int DepositFundsMenu() 
+            //returns an integer indicating which account to deposit to
         {
             Console.WriteLine("DepositFunds()");
             Console.WriteLine("Would you like to deposit funds to 1) Checking or 2) Savings?");
@@ -129,7 +130,8 @@ namespace BankAcctProject
             return depositAccountChoice;
         }
 
-        public static int WithdrawFundsMenu() //returns an integer indicating which account to withdraw from
+        public static int WithdrawFundsMenu() 
+            //returns an integer indicating which account to withdraw from
         {
             Console.WriteLine("Would you like to withdraw Funds from 1) Checking or 2) Savings?");
             int withdrawAccountChoice = int.Parse(Console.ReadLine());

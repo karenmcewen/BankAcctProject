@@ -19,7 +19,7 @@ namespace BankAcctProject
         protected string lastName;
         protected int clientNumber;
 
-        //PROPERTIES (3)
+        //PROPERTIES (+3)
         public string FirstName
         {
             get { return this.firstName; }
@@ -38,11 +38,10 @@ namespace BankAcctProject
             set { this.clientNumber = value; }
         }
 
-        //CONSTRUCTOR (1)
+        //CONSTRUCTOR (+1)
 
         public Client() //empty constructor in case we want to create a subclass later
         {
-
         }
 
         public Client(string firstName, string lastName, int clientNumber) 
@@ -52,10 +51,9 @@ namespace BankAcctProject
             this.clientNumber = clientNumber;
         }
 
-        //METHODS (1)
+        //METHODS (+1)
         public void ShowClientInfo()
-        {
-            
+        {            
             Console.WriteLine();
             Console.WriteLine("_______________________________________________________________________");
             Console.WriteLine();
@@ -66,7 +64,6 @@ namespace BankAcctProject
             Console.WriteLine("_______________________________________________________________________");
             Console.WriteLine();
         }
-
-
+        
     }
 }
